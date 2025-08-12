@@ -7,7 +7,7 @@
 [![PyPI version](https://img.shields.io/pypi/v/ytsage?color=dc2626&style=for-the-badge&logo=pypi&logoColor=white)](https://badge.fury.io/py/ytsage)
 [![License: MIT](https://img.shields.io/badge/License-MIT-374151?style=for-the-badge&logo=opensource&logoColor=white)](https://opensource.org/licenses/MIT)
 [![Python 3.7+](https://img.shields.io/badge/python-3.7+-1f2937?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/downloads/)
-[![Downloads](https://img.shields.io/pypi/dm/ytsage?color=4b5563&style=for-the-badge&logo=download&logoColor=white)](https://pepy.tech/project/ytsage)
+[![Downloads](https://img.shields.io/pepy/dt/ytsage?color=4b5563&style=for-the-badge&label=downloads&logo=download&logoColor=white)](https://pepy.tech/project/ytsage)
 [![GitHub Stars](https://img.shields.io/github/stars/oop7/YTSage?color=dc2626&style=for-the-badge&logo=github&logoColor=white)](https://github.com/oop7/YTSage/stargazers)
 
 **A modern YouTube downloader with a clean PySide6 interface.**  
@@ -17,11 +17,23 @@ Download videos in any quality, extract audio, fetch subtitles, and more.
 [Features](#features) •
 [Usage](#usage) •
 [Screenshots](#screenshots) •
+[Troubleshooting](#troubleshooting) •
 [Contributing](#contributing)
 
 </div>
 
 ---
+
+<a id="why-ytsage"></a>
+
+## ❓ Why YTSage?
+
+YTSage is designed for users who want a **simple yet powerful YouTube downloader**. Unlike other tools, it offers:
+
+- A clean, modern PySide6 interface
+- One-click downloads for video, audio, and subtitles
+- Advanced features like SponsorBlock, subtitle merging, and playlist selection
+- Cross-platform support and easy installation
 
 <a id="features"></a>
 ## ✨ Features
@@ -35,46 +47,66 @@ Download videos in any quality, extract audio, fetch subtitles, and more.
 | ✨ Simple UI                      |  💾 Save Description                    | 🛠️ FFmpeg/yt-dlp Detection         |
 | 📋 Playlist Support              |  🖼️ Save thumbnail                       | ⚙️ Custom Commands                 |
 | 🖼️ Playlist Selector             | 🚀 Speed Limiter                        | 🍪 Login with Cookies              |
-|                                   | ✂️ Trim Video Sections                   |                                    |
+| 📑 Embed Chapters                | ✂️ Trim Video Sections                   |                                    |
 
 </div>
+
+
 
 <a id="installation"></a>
 ## 🚀 Installation
 
-### Quick Install (Recommended)
+### ⚡ Quick Install (Recommended)
+
+Install YTSage from PyPI:
+
 ```bash
 pip install ytsage
 ```
+
+Then launch the app:
+
 ```bash
-# Run the application
 ytsage
 ```
 
-### 📦 Other Installation Methods
+### 📦 Pre-built Executables
 
-### Pre-built Executables
-- 🪟 Windows: `YTSage.exe`
-- 🪟 Windows: `YTSage-ffmpeg.exe` (Includes FFmpeg)
-- 🐧 Linux: `YTSage_{version}_amd64.deb`
-- 🐧 Linux: `YTSage-x86_64.AppImage`
-- 🍎 macOS: `YTSage-macOS-app.zip`
-- 🍎 macOS: `YTSage-{version}.dmg`
+
+
+- 🪟 **Windows:** `YTSage-v<version>.exe` / `YTSage-v<version>-ffmpeg.exe` (with FFmpeg)
+- 🐧 **Linux:** `YTSage-v<version>-amd64.deb` / `YTSage-v<version>-x86_64.AppImage`
+- 🍎 **macOS:** `YTSage-v<version>-macOS.zip` / `YTSage-v<version>.dmg`
+
+> 👉 [Download Latest Release](https://github.com/oop7/YTSage/releases/latest)
 
 <details>
 <summary>🛠️ Manual Installation from Source</summary>
 
+### 1. Clone the Repository
+
 ```bash
-# Clone repository
 git clone https://github.com/oop7/YTSage.git
-
-# Navigate to directory
 cd YTSage
+```
 
-# Install dependencies
+### 2. Install Dependencies
+
+#### ⚡ With uv
+
+```bash
+uv pip install -r requirements.txt
+```
+
+#### 📦 Or with standard pip
+
+```bash
 pip install -r requirements.txt
+```
 
-# Run application
+### 3. Run the Application
+
+```bash
 python main.py
 ```
 
@@ -122,6 +154,7 @@ python main.py
    - Save thumbnail
    - Remove sponsor segments
    - Save description
+   - Embed chapters
 6. **Select Output Directory**
 7. **Click "Download"**
 
@@ -148,6 +181,7 @@ python main.py
 - **Custom Commands:** Access advanced yt-dlp features
 - **Save Description:** Save the description of the video
 - **Save Thumbnail:** Save the thumbnail of the video
+- **Embed Chapters:** Embed chapter markers as metadata in the downloaded video file for compatible video players
 - **Remove Sponsor Segments:** Remove sponsor segments from the video
 - **Speed Limiter:** Limit the download speed
 - **Login with Cookies:** Login to YouTube using cookies to access private content  
@@ -159,28 +193,28 @@ python main.py
 - **Save Download Path:** Save the download path
 - **Update yt-dlp:** Update yt-dlp
 - **FFmpeg/yt-dlp Detection:** Automatically detect FFmpeg/yt-dlp
-- **Custom Commands:** Access advanced yt-dlp features
 - **Trim Video:** Download only specific parts of a video by specifying time ranges (HH:MM:SS format)
 
 
 </details>
 
 <details>
+<a id="troubleshooting"></a>
 <summary>🛠️ Troubleshooting</summary>
 
 - **Format table not displaying:** Update yt-dlp to the latest version
 - **Download fails:** Check your internet connection and ensure the video is available
 - **Audio extraction issues:** Verify FFmpeg is properly installed
 
+---
+
+Configuration locations (advanced):
+
+- Windows: `%LOCALAPPDATA%\\YTSage`
+- macOS: `~/Library/Application Support/YTSage`
+- Linux: `~/.local/share/YTSage`
+
 </details>
-
-## 🧩 Requirements
-
-- **Python:** 3.7 or higher
-- **GUI Framework:** PySide6
-- **Download Engine:** yt-dlp  
-- **Media Processing:** FFmpeg
-- **Additional Libraries:** Pillow, requests, packaging, markdown, pygame
 
 <a id="contributing"></a>
 ## 👥 Contributing
@@ -189,18 +223,72 @@ We welcome contributions! Here's how you can help:
 
 1. 🍴 Fork the repository
 2. 🌿 Create your feature branch:
-   ```bash
-   git checkout -b feature/AmazingFeature
-   ```
+  ```bash
+  git checkout -b feature/AmazingFeature
+  ```
 3. 💾 Commit your changes:
-   ```bash
-   git commit -m 'Add some AmazingFeature'
-   ```
+  ```bash
+  git commit -m 'Add some AmazingFeature'
+  ```
 4. 📤 Push to the branch:
-   ```bash
-   git push origin feature/AmazingFeature
-   ```
+  ```bash
+  git push origin feature/AmazingFeature
+  ```
 5. 🔄 Open a Pull Request
+
+<details>
+<summary>📂 Project Structure</summary>
+
+# YTSage - Project Structure
+
+This document describes the organized folder structure of YTSage.
+
+## 📁 Project Structure
+
+```
+YTSage-main/
+├── 📁 assets/                    # Static assets and resources
+│   ├── 📁 Icon/                  # Application icons
+│   │   └── icon.png
+│   └── 📁 sound/                 # Audio files
+│       └── notification.mp3
+│
+├── 📁 src/                       # Source code
+│   ├── 📁 core/                  # Core business logic
+│   │   ├── __init__.py           # Core package init
+│   │   ├── ytsage_downloader.py  # Download functionality
+│   │   ├── ytsage_ffmpeg.py      # FFmpeg integration
+│   │   ├── ytsage_style.py       # UI styling
+│   │   ├── ytsage_utils.py       # Utility functions
+│   │   └── ytsage_yt_dlp.py      # yt-dlp integration
+│   │
+│   ├── 📁 gui/                   # User interface components
+│   │   ├── 📁 dialogs/           # Dialog classes
+│   │   │   ├── __init__.py       # Dialogs package init (re-exports all)
+│   │   │   ├── ytsage_dialogs_base.py     # Basic dialogs (Log, About)
+│   │   │   ├── ytsage_dialogs_custom.py   # Custom functionality dialogs
+│   │   │   ├── ytsage_dialogs_ffmpeg.py   # FFmpeg-related dialogs
+│   │   │   ├── ytsage_dialogs_selection.py # Selection dialogs
+│   │   │   ├── ytsage_dialogs_settings.py  # Settings dialogs
+│   │   │   └── ytsage_dialogs_update.py    # Update dialogs
+│   │   │
+│   │   ├── __init__.py           # GUI package init
+│   │   ├── ytsage_gui_dialogs.py # Dialog aggregator (backward compatibility)
+│   │   ├── ytsage_gui_format_table.py # Format table functionality
+│   │   ├── ytsage_gui_main.py    # Main application window
+│   │   └── ytsage_gui_video_info.py # Video information display
+│   │
+│   └── __init__.py               # Main package init
+│
+├── 📄 main.py                    # Application entry point
+├── 📄 requirements.txt           # Python dependencies
+├── 📄 README.md                  # Project documentation
+├── 📄 LICENSE                    # License file
+└── 📄 .gitignore                 # Git ignore rules
+```
+
+</details>
+
 
 ## 📊 Star History
 
@@ -216,6 +304,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
+<details>
+<summary>Show Acknowledgments</summary>
+
 <div align="center">
 
 | Technology | Purpose |
@@ -228,10 +319,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 | [packaging](https://packaging.python.org/) | Packaging |
 | [markdown](https://python-markdown.github.io/) | Markdown Processing |
 | [pygame](https://www.pygame.org/) | Audio Playback |
+| [loguru](https://github.com/Delgan/loguru) | Logging |
 | [New Notification 09 by Universfield](https://pixabay.com/sound-effects/new-notification-09-352705/) | Notification Sound |
+| [viru185](https://github.com/viru185) | Contributor |
 
 
 </div>
+
+</details>
 
 ## ⚠️ Disclaimer
 
